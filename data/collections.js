@@ -99,7 +99,7 @@ export const collectionItems = [
     lookbook: {
       imgSrc: "/images/gallery/lookbook-1.jpg",
       productTitle: "Rattan bag with handle",
-      price: "$159.99",
+      price: "₹159.99",
       quickViewLink: "#quickView",
     },
   },

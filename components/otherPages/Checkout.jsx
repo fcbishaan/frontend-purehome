@@ -8,17 +8,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 const discounts = [
   {
     discount: "10% OFF",
-    details: "For all orders from 200$",
+    details: "For all orders from 200₹",,
     code: "Mo234231",
   },
   {
     discount: "10% OFF",
-    details: "For all orders from 200$",
+    details: "For all orders from 200₹",,
     code: "Mo234231",
   },
   {
     discount: "10% OFF",
-    details: "For all orders from 200$",
+    details: "For all orders from 200₹",,
     code: "Mo234231",
   },
 ];
@@ -444,7 +444,7 @@ export default function Checkout() {
                         </div>
                         <div className="total-price text-button">
                           <span className="count">{elm.quantity}</span>X
-                          <span className="price">${elm.price.toFixed(2)}</span>
+                          <span className="price">₹{elm.price.toFixed(2)}</span>
                         </div>
                       </div>
                     </div>
@@ -510,7 +510,7 @@ export default function Checkout() {
                   </div>
                   <p>
                     Discount code is only used for orders with a total value of
-                    products over $500.00
+                    products over ₹500.00
                   </p>
                 </div>
                 <div className="sec-total-price">
@@ -521,7 +521,7 @@ export default function Checkout() {
                     </div>
                     <div className="item d-flex align-items-center justify-content-between text-button">
                       <span>Discounts</span>
-                      <span>-$80.00</span>
+                      <span>-₹80.00</span>
                     </div>
                   </div>
                   <div className="bottom">

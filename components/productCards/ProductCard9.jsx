@@ -225,9 +225,9 @@ export default function ProductCard9({ product, gridClass = "" }) {
         </Link>
         <span className="price">
           {product.oldPrice && (
-            <span className="old-price">${product.oldPrice.toFixed(2)}</span>
+            <span className="old-price">₹{product.oldPrice.toFixed(2)}</span>
           )}{" "}
-          ${product.price?.toFixed(2)}
+          ₹{product.price?.toFixed(2)}
         </span>
         {product.colors && (
           <ul className="list-color-product">

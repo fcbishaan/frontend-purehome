@@ -313,9 +313,9 @@ export default function ProductCard1({
           </Link>
           <span className="price">
             {displayProduct.oldPrice && (
-              <span className="old-price">{displayProduct.oldPrice.toFixed(2)}</span>
+              <span className="old-price">₹{displayProduct.oldPrice.toFixed(2)}</span>
             )}{" "}
-            {displayProduct.price?.toFixed(2)}
+            ₹{displayProduct.price?.toFixed(2)}
           </span>
           {displayProduct.colors && (
             <ul className="list-color-product">

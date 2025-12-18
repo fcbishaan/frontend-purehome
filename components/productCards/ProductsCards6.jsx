@@ -57,9 +57,9 @@ export default function ProductsCards6({ product }) {
         </Link>
         <span className="price current-price">
           {product.oldPrice && (
-            <span className="old-price">${product.oldPrice.toFixed(2)}</span>
+            <span className="old-price">₹{product.oldPrice.toFixed(2)}</span>
           )}{" "}
-          ${product.price?.toFixed(2)}
+          ₹{product.price?.toFixed(2)}
         </span>
         <p className="description text-secondary text-line-clamp-2">
           The garments labelled as Committed are products that have been
