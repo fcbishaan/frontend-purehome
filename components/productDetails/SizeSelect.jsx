@@ -3,11 +3,11 @@
 import { useState } from "react";
 
 const sizes = [
-  { id: "values-s", value: "S", price: 79.99, disabled: false },
-  { id: "values-m", value: "M", price: 79.99, disabled: false },
-  { id: "values-l", value: "L", price: 89.99, disabled: false },
-  { id: "values-xl", value: "XL", price: 89.99, disabled: false },
-  { id: "values-xxl", value: "XXL", price: 89.99, disabled: true },
+  { id: "values-2-Seater", value: "2-Seater", price: 79.99, disabled: false },
+  { id: "values-3-Seater", value: "3-Seater", price: 79.99, disabled: false },
+  { id: "values-4-Seater", value: "4-Seater", price: 89.99, disabled: false },
+  { id: "values-xl", value: "5-Seater", price: 89.99, disabled: false },
+  { id: "values-xxl", value: "6-Seater", price: 89.99, disabled: true },
 ];
 
 export default function SizeSelect() {
@@ -44,14 +44,16 @@ export default function SizeSelect() {
               readOnly
             />
             <label
-              className={`style-text size-btn ${
-                disabled ? "type-disable" : ""
-              }`}
+              className={`style-text size-btn-rect ${disabled ? "type-disable" : ""
+                }`}
               htmlFor={id}
               data-value={value}
               data-price={price}
             >
-              <span className="text-title">{value}</span>
+              <div className="size-content-rect">
+                <span className="text-title size-name">{value}</span>
+                <span className="size-price text-caption-1">₹{price}</span>
+              </div>
             </label>
           </div>
         ))}

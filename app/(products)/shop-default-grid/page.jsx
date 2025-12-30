@@ -17,7 +17,7 @@ export default function ShopDefaultGridPage() {
         <div className="container-full">
           <div className="row">
             <div className="col-12">
-              <h3 className="heading text-center">PURE CHAIR</h3>
+              <h3 className="heading text-center">CURVE & COMFY</h3>
               <ul className="breadcrumbs d-flex align-items-center justify-content-center">
                 <li>
                   <Link className="link" href={`/`}>
@@ -27,7 +27,7 @@ export default function ShopDefaultGridPage() {
                 <li>
                   <i className="icon-arrRight" />
                 </li>
-                <li>PURE CHAIR</li>
+                <li>CURVE & COMFY</li>
               </ul>
             </div>
           </div>

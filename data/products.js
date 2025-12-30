@@ -9,7 +9,7 @@ export const products = [
     filterBrands: ["Nike", "Louis Vuitton", "Zalando", "Adidas"],
     inStock: true,
     filterColor: ["Beige", "Orange", "Green", "Black", "Purple", "Dark Blue"],
-    filterSizes: ["XS", "L", "XL", "2XL", "3XL"],
+    filterSizes: ["1-seater", "2-seater", "XL", "2XL", "3XL"],
     tabFilterOptions2: ["New Arrivals", "On Sale"],
     tabFilterOptions: ["Bottoms", "Skirts", "Dresses", "Sale"],
   },

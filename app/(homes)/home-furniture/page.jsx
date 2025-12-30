@@ -14,29 +14,33 @@ import ExploreProducts from "@/components/common/ExploreProducts";
 import Loader from "@/components/Loader";
 import ContentReadySignal from "@/components/common/ContentReadySignal";
 import { Suspense } from "react";
+import Nav from "@/components/headers/Nav";
+import Banner from "@/components/homes/cosmetic/Banner";
 
 export const metadata = {
   title:
-    "Home Furniture ||PURE CHAIR",
-  description: "PURE CHAIR",
+    "Home Furniture || CURVE & COMFY",
+  description: "CURVE & COMFY",
 };
 
 export default function HomeFurniturePage() {
   return (
     <>
-    <Suspense fallback={<Loader />}>
-      <Header2 />
-      <Hero />
-      <MarqueeSection2 parentClass="tf-marquee bg-light-blue-4 border-0" />
-      <Collections />
-      <ExploreProducts />
-      <Lookbook />
-      <Products4 parentClass="flat-spacing-3" />
-      <Collections2 />
-      <Testimonials />
-      <ShopGram parentClass="flat-spacing-3" />
-      <Footer1 />
-      <ContentReadySignal />
+      <Suspense fallback={<Loader />}>
+        <Header2 />
+        <Nav />
+        <Hero />
+        {/* <MarqueeSection2 parentClass="tf-marquee bg-light-blue-4 border-0" /> */}
+        <Collections parentClass="" />
+        <Banner />
+        <ExploreProducts />
+        <Lookbook />
+        <Products4 parentClass="flat-spacing-3" />
+        <Collections2 />
+        <Testimonials />
+        <ShopGram parentClass="flat-spacing-3" />
+        <Footer1 />
+        <ContentReadySignal />
       </Suspense>
     </>
   );

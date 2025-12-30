@@ -281,19 +281,19 @@ export const sliderData2 = [
 
 export const sliderData3 = [
   {
-    imgSrc: "/images/slider/slider-furniture.jpeg",
+    imgSrc: "/images/slider/slider-furniture.png",
     title: "Modern Work Desks",
     description:
       "Enhance your productivity with intelligently designed work desks.",
   },
   {
-    imgSrc: "/images/slider/slider-furniture2.webp",
+    imgSrc: "/images/slider/slider-furniture2.png",
     title: "Cozy Living Room Sofas",
     description:
       "Bring warmth and luxury to your living room with our high-end sofa designs.",
   },
   {
-    imgSrc: "/images/slider/slider-furniture3.webp",
+    imgSrc: "/images/slider/slider-furniture3.png",
     title: "Elegant Dining Room",
     description:
       "Enhance your productivity with intelligently designed work desks.",

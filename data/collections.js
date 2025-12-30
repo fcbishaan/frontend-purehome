@@ -293,7 +293,7 @@ export const categories2 = [
 export const collectionItems2 = [
   {
     id: 1,
-    imgSrc: "/images/collections/banner-collection/banner-cls15.png",
+    imgSrc: "/images/collections/banner-collection/banner-cls15.jpg",
     alt: "banner-cls",
     title: "Book Shelves",
     desc: "Start From $199",

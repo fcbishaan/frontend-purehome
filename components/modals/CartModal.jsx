@@ -19,6 +19,36 @@ export default function CartModal() {
   };
 
   const [currentOpenPopup, setCurrentOpenPopup] = useState("");
+  const [recommendations, setRecommendations] = useState(products41);
+
+  useEffect(() => {
+    const fetchRecommendations = async () => {
+      if (cartProducts.length > 0) {
+        const firstItem = cartProducts[0];
+        // Safely access category slug or name
+        const categorySlug = firstItem.category?.slug || firstItem.category?.name;
+
+        if (categorySlug) {
+          try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product?categorySlug=${categorySlug}`);
+            const data = await res.json();
+            if (data.success) {
+              // Filter out items already in cart
+              const cartIds = cartProducts.map(cp => cp.id || cp._id);
+              const filtered = data.products.filter(p => !cartIds.includes(p._id));
+              setRecommendations(filtered.length ? filtered : products41);
+            }
+          } catch (error) {
+            console.error("Error fetching recommendations:", error);
+          }
+        }
+      } else {
+        setRecommendations(products41);
+      }
+    };
+
+    fetchRecommendations();
+  }, [cartProducts]);
 
   return (
     <div className="modal fullRight fade modal-shopping-cart" id="shoppingCart">
@@ -28,14 +58,13 @@ export default function CartModal() {
             <h6 className="title">You May Also Like</h6>
             <div className="wrap-recommendations">
               <div className="list-cart">
-                {products41.map((product, index) => (
+                {recommendations.slice(0, 4).map((product, index) => (
                   <div className="list-cart-item" key={index}>
                     <div className="image">
                       <Image
                         className="lazyload"
-                        data-src={product.imgSrc}
-                        alt={product.alt}
-                        src={product.imgSrc}
+                        alt={product.title}
+                        src={product.imgSrc?.url || product.imgSrc}
                         width={600}
                         height={800}
                       />
@@ -44,20 +73,20 @@ export default function CartModal() {
                       <div className="name">
                         <Link
                           className="link text-line-clamp-1"
-                          href="/product-detail"
+                          href={`/product-detail/${product._id || product.id}`}
                         >
                           {product.title}
                         </Link>
                       </div>
                       <div className="cart-item-bot">
                         <div className="text-button price">
-                          ${product.price.toFixed(2)}
+                          ₹{product.price.toFixed(2)}
                         </div>
                         <a
                           className="link text-button"
-                          onClick={() => addProductToCart(product.id, 1, false)}
+                          onClick={() => addProductToCart(product._id || product.id, 1, false)}
                         >
-                          {isAddedToCartProducts(product.id)
+                          {isAddedToCartProducts(product._id || product.id)
                             ? "Already Added"
                             : "Add to cart"}
                         </a>
@@ -130,7 +159,7 @@ export default function CartModal() {
                               <div className="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                 <div className="text-secondary-2">XL/Blue</div>
                                 <div className="text-button">
-                                  {product.quantity} X $
+                                  {product.quantity} X ₹
                                   {product.price.toFixed(2)}
                                 </div>
                               </div>
@@ -266,7 +295,7 @@ export default function CartModal() {
                     <div className="tf-cart-totals-discounts">
                       <h5>Subtotal</h5>
                       <h5 className="tf-totals-total-value">
-                        ${totalPrice.toFixed(2)}
+                        ₹{totalPrice.toFixed(2)}
                       </h5>
                     </div>
                     <div className="tf-cart-checkbox">

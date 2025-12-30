@@ -8,6 +8,7 @@ import { useContextElement } from "@/context/Context";
 import ProductStikyBottom from "../ProductStikyBottom";
 import SizeSelect from "../SizeSelect";
 import FabricChooser from "../FabricOption";
+import QualitySelect from "../QualitySelect";
 export default function Details1({ product }) {
   const [activeColor, setActiveColor] = useState("gray");
   const [quantity, setQuantity] = useState(1);
@@ -142,13 +143,13 @@ export default function Details1({ product }) {
                       <div className="tf-product-info-price">
                         <h5 className="price-on-sale font-2">
                           {" "}
-                          ${product.price?.toFixed(2)}
+                          ₹{product.price?.toFixed(2)}
                         </h5>
                         {product.oldPrice ? (
                           <>
                             <div className="compare-at-price font-2">
                               {" "}
-                              ${product.oldPrice.toFixed(2)}
+                              ₹{product.oldPrice.toFixed(2)}
                             </div>
                             <div className="badges-on-sale text-btn-uppercase">
                               -25%
@@ -177,6 +178,7 @@ export default function Details1({ product }) {
                       colorOptions={colorOptions}
                     />
                     <SizeSelect />
+                    <QualitySelect />
                     <div className="tf-product-info-quantity">
                       <div className="title ab_12">Choose Fabric </div>
                       <FabricChooser />
@@ -210,7 +212,7 @@ export default function Details1({ product }) {
                               : "Add to cart -"}
                           </span>
                           <span className="tf-qty-price total-price">
-                            $
+                            ₹
                             {isAddedToCartProducts(product.id)
                               ? (
                                 product.price *
@@ -292,7 +294,7 @@ export default function Details1({ product }) {
                         </div>
                         <p className="text-caption-1">
                           Estimated Delivery:&nbsp;&nbsp;<span>12-26 days</span>
-                          (International), <span>3-6 days</span> (United States)
+                          (International), <span>3-6 days</span> (India)
                         </p>
                       </div>
                       <div className="tf-product-info-return">
@@ -329,8 +331,7 @@ export default function Details1({ product }) {
                               <p>Pickup available. Usually ready in 24 hours</p>
                             </div>
                             <div>
-                              <p>766 Rosalinda Forges Suite 044,</p>
-                              <p>Gracielahaven, Oregon</p>
+                              <p>M-57, DLF, Gurugram - 122008</p>
                             </div>
                           </div>
                         </div>

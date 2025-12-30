@@ -4,36 +4,36 @@ import Nav from "./Nav";
 import Link from "next/link";
 import Image from "next/image";
 import CartLength from "../common/CartLength";
-import {useAuth} from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Header2() {
   const { user, logout } = useAuth();
 
   return (
-    <header id="header" className="header-default header-style-4 " style={{ paddingTop: '65px' }}>
+    <header id="header" className="header-default header-style-4 " >
       <div className="main-header">
         <div className="container">
           <div className="row wrapper-header align-items-center py-0">
             <div className="col-xl-5 d-none d-xl-block ">
               <ul className="header-list-categories right-20%">
                 <li className="categories-item active">
-                  <Link href={`/order-tracking`} style={{ fontSize: '12px', padding: '5px 0', textDecoration: 'none' }} >
-                   Track Order
+                  <Link href={`/order-tracking`} style={{ fontSize: '10px', fontWeight: '500', letterSpacing: '0.5px', textTransform: 'uppercase' }} >
+                    Track Order
                   </Link>
                 </li>
                 <li className="categories-item" >
-                  <a href="/about-us" style={{ fontSize: '12px', padding: '5px 0', textDecoration: 'none' }} >
+                  <a href="/about-us" style={{ fontSize: '10px', fontWeight: '500', letterSpacing: '0.5px', textTransform: 'uppercase' }} >
                     About Us
                   </a>
                 </li>
                 <li className="categories-item">
-                  <a href="contact-02" style={{ fontSize: '12px', padding: '5px 0', textDecoration: 'none' }}>
-                   Customer Support
+                  <a href="contact-02" style={{ fontSize: '10px', fontWeight: '500', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+                    Customer Support
                   </a>
                 </li>
                 <li className="categories-item">
-                  <a href="/career" style={{ fontSize: '12px', padding: '5px 0', textDecoration: 'none' }}>
-                   Career
+                  <a href="/career" style={{ fontSize: '10px', fontWeight: '500', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+                    Career
                   </a>
                 </li>
               </ul>
@@ -62,7 +62,7 @@ export default function Header2() {
             </div>
             <div className="col-xl-5 col-md-4 col-3">
               <div className="wrapper-header-right">
-              {/*  <div className="d-none d-xl-block">
+                {/*  <div className="d-none d-xl-block">
                   <div className="tf-currencies">
                     <CurrencySelect topStart />
                   </div>
@@ -126,19 +126,19 @@ export default function Header2() {
                       </svg>
                     </a>
                     <div className="dropdown-account dropdown-login">
-                       {!user ? (
-                      <div className="sub-top">
-                        <Link href={`/login`} className="tf-btn btn-reset">
-                          Login
-                        </Link>
-                        <p className="text-center text-secondary-2">
-                          Don’t have an account?{" "}
-                          <Link href={`/register`}>Register</Link>
-                        </p>
-                      </div>
-                      
-                      ):(
-                      <div className="sub-top text-center">
+                      {!user ? (
+                        <div className="sub-top">
+                          <Link href={`/login`} className="tf-btn btn-reset">
+                            Login
+                          </Link>
+                          <p className="text-center text-secondary-2">
+                            Don’t have an account?{" "}
+                            <Link href={`/register`}>Register</Link>
+                          </p>
+                        </div>
+
+                      ) : (
+                        <div className="sub-top text-center">
                           <p>Welcome, {user.name}</p>
                           <Link href={`/my-account`} className="tf-btn btn-reset">
                             Profile
@@ -206,50 +206,7 @@ export default function Header2() {
           </div>
         </div>
       </div>
-      <div className="header-bottom header-dark">
-        <div className="container">
-          <div className="wrapper-header d-flex justify-content-center align-items-center">
-            <nav className="box-navigation text-center">
-              <ul className="box-nav-ul d-flex align-items-center justify-content-center d-none d-xl-flex">
-                <Nav />
-              </ul>
-              <ul className="header-list-categories d-xl-none justify-content-center">
-                <li className="categories-item active">
-                  <Link href={`/home-fashion-main`} className="text-uppercase">
-                    Home
-                  </Link>
-                </li>
-                <li className="categories-item">
-                  <Link href={`/home-fashion-men`} className="text-uppercase">
-                    sofas
-                  </Link>
-                </li>
-                <li className="categories-item">
-                  <Link href={`/home-fashion-kid`} className="text-uppercase">
-                    Beds
-                  </Link>
-                </li>
-                <li className="categories-item">
-                  <Link href={`/home-fashion-kid`} className="text-uppercase">
-                     Tables
-                  </Link>
-                </li>
-                <li className="categories-item">
-                  <Link href={`/home-fashion-kid`} className="text-uppercase">
-                  Ottomans
-                  </Link>
-                </li>
-                <li className="categories-item">
-                  <Link href={`/home-fashion-kid`} className="text-uppercase">
-                    
-                  </Link>
-                </li>
 
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
     </header>
   );
 }

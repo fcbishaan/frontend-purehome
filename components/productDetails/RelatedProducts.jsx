@@ -1,12 +1,41 @@
 "use client";
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import { products } from "@/data/products";
 import ProductCard1 from "../productCards/ProductCard1";
-export default function RelatedProducts() {
+
+export default function RelatedProducts({ product }) {
+  const [relatedProducts, setRelatedProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRelatedProducts = async () => {
+      if (!product?.category?.slug && !product?.category?.name) return;
+
+      try {
+        setLoading(true);
+        // Use slug if available, otherwise name
+        const queryParam = product.category.slug || product.category.name;
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product?categorySlug=${queryParam}`);
+        const data = await res.json();
+
+        if (data.success) {
+          // Filter out the current product
+          const filtered = data.products.filter((p) => p._id !== product._id);
+          setRelatedProducts(filtered);
+        }
+      } catch (error) {
+        console.error("Failed to fetch related products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRelatedProducts();
+  }, [product]);
+
+  if (!relatedProducts.length) return null;
+
   return (
     <section className="flat-spacing">
       <div className="container flat-animate-tab">
@@ -38,7 +67,6 @@ export default function RelatedProducts() {
               spaceBetween={15}
               breakpoints={{
                 0: { slidesPerView: 2, spaceBetween: 15 },
-
                 768: { slidesPerView: 3, spaceBetween: 30 },
                 1200: { slidesPerView: 4, spaceBetween: 30 },
               }}
@@ -48,39 +76,13 @@ export default function RelatedProducts() {
                 el: ".spd4",
               }}
             >
-              {products.slice(0, 4).map((product, i) => (
+              {relatedProducts.slice(0, 8).map((prod, i) => (
                 <SwiperSlide key={i} className="swiper-slide">
-                  <ProductCard1 product={product} />
+                  <ProductCard1 product={prod} />
                 </SwiperSlide>
               ))}
 
-              <div className="sw-pagination-latest spd4  sw-dots type-circle justify-content-center" />
-            </Swiper>
-          </div>
-          <div className="tab-pane" id="recentlyViewed" role="tabpanel">
-            <Swiper
-              className="swiper tf-sw-latest"
-              dir="ltr"
-              spaceBetween={15}
-              breakpoints={{
-                0: { slidesPerView: 2, spaceBetween: 15 },
-
-                768: { slidesPerView: 3, spaceBetween: 30 },
-                1200: { slidesPerView: 4, spaceBetween: 30 },
-              }}
-              modules={[Pagination]}
-              pagination={{
-                clickable: true,
-                el: ".spd5",
-              }}
-            >
-              {products.slice(4).map((product, i) => (
-                <SwiperSlide key={i} className="swiper-slide">
-                  <ProductCard1 product={product} />
-                </SwiperSlide>
-              ))}
-
-              <div className="sw-pagination-latest spd5  sw-dots type-circle justify-content-center" />
+              <div className="sw-pagination-latest spd4 sw-dots type-circle justify-content-center" />
             </Swiper>
           </div>
         </div>

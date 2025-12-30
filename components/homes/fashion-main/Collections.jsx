@@ -10,10 +10,10 @@ export default function Collections() {
     <section className="flat-spacing">
       <div className="container">
         <div className="heading-section-2 wow fadeInUp">
-          <h3 className="heading">Explore Collections</h3>
-          <Link href={`/shop-collection`} className="btn-line">
+          {/* <h3 className="heading">Explore Collections</h3> */}
+          {/*  <Link href={`/shop-collection`} className="btn-line">
             View All Collection
-          </Link>
+          </Link>*/}
         </div>
         <Swiper
           spaceBetween={10}

@@ -72,13 +72,13 @@ export default function DetailsGrouped({ product }) {
                       <div className="tf-product-info-price">
                         <h5 className="price-on-sale font-2">
                           {" "}
-                          ${product.price.toFixed(2)}
+                          ₹{product.price.toFixed(2)}
                         </h5>
                         {product.oldPrice ? (
                           <>
                             <div className="compare-at-price font-2">
                               {" "}
-                              ${product.oldPrice.toFixed(2)}
+                              ₹{product.oldPrice.toFixed(2)}
                             </div>
                             <div className="badges-on-sale text-btn-uppercase">
                               -25%
@@ -139,7 +139,7 @@ export default function DetailsGrouped({ product }) {
                               : "Add to cart -"}
                           </span>
                           <span className="tf-qty-price total-price">
-                            $
+                            ₹
                             {isAddedToCartProducts(product.id)
                               ? (
                                   product.price *
@@ -221,7 +221,7 @@ export default function DetailsGrouped({ product }) {
                         </div>
                         <p className="text-caption-1">
                           Estimated Delivery:&nbsp;&nbsp;<span>12-26 days</span>
-                          (International), <span>3-6 days</span> (United States)
+                          (International), <span>3-6 days</span> (India)
                         </p>
                       </div>
                       <div className="tf-product-info-return">
@@ -258,8 +258,7 @@ export default function DetailsGrouped({ product }) {
                               <p>Pickup available. Usually ready in 24 hours</p>
                             </div>
                             <div>
-                              <p>766 Rosalinda Forges Suite 044,</p>
-                              <p>Gracielahaven, Oregon</p>
+                              <p>M-57, DLF, Gurugram - 122008</p>
                             </div>
                           </div>
                         </div>
